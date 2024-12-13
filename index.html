@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeloShield Helm</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="header-left">
+        <h1>VeloShield</h1>
+      </div>
+
+      <div id="category">
+        <select id="category-select" onchange="filterByCategory()">
+          <option value="all">Kategori</option>
+          <option value="Arai">Arai</option>
+          <option value="Cargloss">Cargloss</option>
+          <option value="Inka">Inka</option>
+        </select>
+      </div>
+
+      <div id="header-right">
+        <div id="search">
+          <input type="text" id="search-input" placeholder="Cari produk..." oninput="searchProduct()" />
+        </div>
+      </div>
+
+      <div id="cart">
+        <button onclick="toggleCart()">Keranjang Belanja (<span id="cart-count">0</span>)</button>
+      </div>
+    </header>
+
+    <section id="carousel">
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="img/gambar 1.png" alt="Gambar 1" />
+        </div>
+      </div>
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+
+    <main>
+      <div class="product" data-category="Arai" id="product1">
+        <img src="img/gambar 2.jpg" alt="Produk 1" />
+        <h2>Arai VZ RAM Pedrosa Spirit</h2>
+        <p>Harga: Rp. 100.000</p>
+        <button onclick="addToCart('Produk 1', 100000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Arai" id="product2">
+        <img src="img/gambar 1.png" alt="Produk 2" />
+        <h2>Arai RX7X RED</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Arai" id="product2">
+        <img src="img/gambar 3.jpeg" alt="Produk 2" />
+        <h2>Arai limited RX7X Nakagami</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Arai" id="product2">
+        <img src="img/gambar 4.jpg" alt="Produk 2" />
+        <h2>Arai RX7X Ogura</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Arai" id="product2">
+        <img src="img/gambar 5.jpeg" alt="Produk 2" />
+        <h2>Arai RX7X Sinya Nakano</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Arai" id="product2">
+        <img src="img/gambar 6.jpg" alt="Produk 2" />
+        <h2>Arai VZ RAM Glass</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 7.webp" alt="Produk 2" />
+        <h2>Cargloss Hijab Half Face</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 8.webp" alt="Produk 2" />
+        <h2>Cargloss YRM Half face</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 9.jpg" alt="Produk 2" />
+        <h2>Cargloss Retro CRM Maroon</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 10.png" alt="Produk 2" />
+        <h2>Cargloss CFM Retro white</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 11.jpg" alt="Produk 2" />
+        <h2>Cargloss CFM Half Face Speed Duck</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Cargloss" id="product2">
+        <img src="img/gambar 12.jpg" alt="Produk 2" />
+        <h2>Cargloss YRH Hijab Half Face</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Inka" id="product2">
+        <img src="img/gambar 13.jpg" alt="Produk 2" />
+        <h2>HJC C10 Inka MC1SF</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+
+      <div class="product" data-category="Inka" id="product2">
+        <img src="img/gambar 14.jpg" alt="Produk 2" />
+        <h2>Cargloss YRH Hijab Half Face</h2>
+        <p>Harga: Rp. 200.000</p>
+        <button onclick="addToCart('Produk 2', 200000)">Tambahkan ke Keranjang</button>
+      </div>
+    </main>
+
+    <div id="cart-modal" class="cart-modal">
+      <div class="cart-content">
+        <h2>Keranjang Belanja</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: Rp. <span id="cart-total">0</span></p>
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="toggleCart()">Tutup</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
